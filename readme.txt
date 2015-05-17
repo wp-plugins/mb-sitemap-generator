@@ -33,6 +33,9 @@ By default the sitemap generator indexes the first 500 pages of your website. If
 = Warnings =
 If you already have an existing sitemap.xml in your WordPress root directory, this file would be overwritten. It is thus recommended to backup your existing sitemap.xml file before using the sitemap generator. I also have not tested the generator on Windows webspace. You should also access the sitemap.xml after the generation finished and check if everything is fine.
 
+= Pre-Installation Verification Test =
+If you like to test if the sitemap generator works fine with your website before you will install the plugin, you could use the [online sitemap generator](https://www.marcobeierer.com/tools/sitemap-generator#generator) on my website, which uses to same technology as the plugin to generate the sitemaps.  
+
 == Installation ==
 1. Upload the 'mb-sitemap-generator' folder to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
