@@ -30,8 +30,8 @@ The [sitemap generator](https://www.marcobeierer.com/wordpress-plugins/sitemap-g
 	* Currently only HTML5 video elements are supported.
 
 = Upcoming Technical Features =
-* Add support for YouTube and Vimeo videos in video sitemaps.
-* Add support for HTML5 picture elements in image sitemaps.
+* Support for YouTube and Vimeo videos in video sitemaps.
+* Support for HTML5 picture elements in image sitemaps.
 * Automatic daily creation of sitemaps.
 
 = Is the service free of charge? =
