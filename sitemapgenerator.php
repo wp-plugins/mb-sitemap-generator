@@ -7,12 +7,12 @@
 
 /*
 Plugin Name: Sitemap Generator
-Plugin URI: https://www.marcobeierer.com/tools/sitemap-generator#wordpress
+Plugin URI: https://www.marcobeierer.com/wordpress-plugins/sitemap-generator
 Description: An easy to use XML Sitemap Generator with support for image and video sitemaps for WordPress.
-Version: 1.0.0
+Version: 1.0.1
 Author: Marco Beierer
 Author URI: https://www.marcobeierer.com
-License: AGPL
+License: GPL v3
 Text Domain: Marco Beierer
 */
 
@@ -44,6 +44,12 @@ function sitemap_generator_page() {
 		</div>
 		<script defer src="<?php echo get_site_url(); ?>/wp-content/plugins/mb-sitemap-generator/js/angular.min.js"></script>
 		<script defer src="<?php echo get_site_url(); ?>/wp-content/plugins/mb-sitemap-generator/js/sitemap.js?v=1"></script>
+	</div>
+	<div class="wrap">
+		<div class="card">
+			<p>You like this plugin? I would be happy if you could write a short review or vote for it in the <a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/mb-sitemap-generator">WordPress Plugin Directory</a>!</p>
+			<p>Any questions? Please have a look at the <a target="_blank" href="https://wordpress.org/plugins/mb-sitemap-generator/faq/">FAQ section</a> or ask your question in the <a target="_blank" href="https://wordpress.org/support/plugin/mb-sitemap-generator">support area</a>. I would be pleased to help you out!</p>
+		</div>
 	</div>
 <?
 }
