@@ -2,14 +2,14 @@
 /*
  * @package    SitemapGenerator
  * @copyright  Copyright (C) 2015 Marco Beierer. All rights reserved.
- * @license    https://www.gnu.org/licenses/agpl-3.0.html GNU/AGPL
+ * @license    https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  */
 
 /*
 Plugin Name: Sitemap Generator
 Plugin URI: https://www.marcobeierer.com/wordpress-plugins/sitemap-generator
 Description: An easy to use XML Sitemap Generator with support for image and video sitemaps for WordPress.
-Version: 1.0.1
+Version: 1.0.2
 Author: Marco Beierer
 Author URI: https://www.marcobeierer.com
 License: GPL v3
@@ -42,8 +42,6 @@ function sitemap_generator_page() {
 				<p class="alert well-sm {{ messageClass }}">{{ message }} <span ng-if="pageCount > 0 && downloadDisabled">{{ pageCount }} pages already crawled.</span></p>
 			</div>
 		</div>
-		<script defer src="<?php echo get_site_url(); ?>/wp-content/plugins/mb-sitemap-generator/js/angular.min.js"></script>
-		<script defer src="<?php echo get_site_url(); ?>/wp-content/plugins/mb-sitemap-generator/js/sitemap.js?v=1"></script>
 	</div>
 	<div class="wrap">
 		<div class="card">
@@ -52,6 +50,19 @@ function sitemap_generator_page() {
 		</div>
 	</div>
 <?
+}
+
+add_action('admin_enqueue_scripts', 'load_sitemap_generator_admin_scripts');
+function load_sitemap_generator_admin_scripts($hook) {
+
+	if ($hook == 'toplevel_page_sitemap-generator') {
+
+		$angularURL = plugins_url('js/angular.min.js', __FILE__);
+		$sitemapGeneratorURL = plugins_url('js/sitemap.js?v=1', __FILE__);
+
+		wp_enqueue_script('sitemap_generator_angularjs', $angularURL);
+		wp_enqueue_script('sitemap_generator_sitemapgeneratorjs', $sitemapGeneratorURL);
+	}
 }
 
 add_action('wp_ajax_sitemap_proxy', 'sitemap_proxy_callback');
@@ -127,7 +138,7 @@ function sitemap_generator_settings_page() {
 				<?php do_settings_sections('sitemap-generator-settings-group'); ?>
 				<h3>Your Token</h3>
 				<p><textarea name="sitemap-generator-token" style="width: 100%; min-height: 350px;"><?php echo esc_attr(get_option('sitemap-generator-token')); ?></textarea></p>
-				<p>The sitemap generator service allows you to create a sitemap with up to 500 pages for free. If your website has more pages or you like to integrate an image sitemap, you can buy a token to create a sitemap with up to 15000 pages at the following website.</p>
+				<p>The sitemap generator service allows you to create a sitemap with up to 500 URLs for free. If your website has more URLs or you like to integrate an image and video sitemap, you can buy a token to create a sitemap with up to 50000 URLs at the following website.</p>
 				<p><a href="https://www.marcobeierer.com/tools/sitemap-generator-token">https://www.marcobeierer.com/tools/sitemap-generator-token</a></p>
 				<?php submit_button(); ?>
 			</form>
